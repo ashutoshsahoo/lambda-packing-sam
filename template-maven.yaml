@@ -7,7 +7,7 @@ Resources:
   AppFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: build/distributions/lambda-packing-sam-1.0.0-SNAPSHOT.zip
+      CodeUri: ./target/lambda-test-sam.jar
       Handler: com.ashu.practice.Handler::handleRequest
       Runtime: java11
       Description: Java function

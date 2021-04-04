@@ -6,30 +6,34 @@ This is generated using [AWS archetype](https://aws.amazon.com/blogs/developer/b
 ## Prerequisites
 
 - Java 11
-- Apache Maven
+- Gradle / Apache Maven
 - [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 - Docker
 
 ## Development
 
 The generated function handler class just returns the input. The configured AWS Java SDK client is created
-in `DependencyFactory` class and you can add the code to interact with the SDK client based on your use case.
+in `DependencyFactory` class, and you can add the code to interact with the SDK client based on your use case.
 
 #### Building the project
 
 ```
-mvn clean install
+gradle clean build
+# or
+mvn clean package
 ```
 
 #### Testing it locally
 
 ```
-sam local invoke
+sam local invoke 
+# or
+sam local invoke -t template-maven.yaml
 ```
 
 #### Adding more SDK clients
 
-To add more service clients, you need to add the specific services modules in `pom.xml` and create the clients
+To add more service clients, you need to add the specific services modules in `build.gradle` or `pom.xml` and create the clients
 in `DependencyFactory` following the same pattern as s3Client.
 
 ## Deployment
